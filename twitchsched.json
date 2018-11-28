@@ -1,0 +1,146 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [
+        {
+            "name": "alexa-viewport-profiles",
+            "version": "1.0.0"
+        }
+    ],
+    "resources": [
+        {
+            "description": "Colors",
+            "colors": {
+                "myBlue": "#69D2E7",
+                "myBlack": "#050826"
+            }
+        }
+    ],
+    "styles": {},
+    "layouts": {
+        "ScheduleListItem": {
+            "parameters": [
+                "title",
+                "time"
+            ],
+            "items": [
+                {
+                            "type": "Container",
+                            "width": "100vw",
+                            "alignItems": "center",
+                            "height": "15vh",
+                            "direction": "column",
+                            "items": [
+                                {
+                                    "type": "Frame",
+                                    "width": "90vw",
+                                    "height": "15vh",
+                                    "backgroundColor": "@myBlack",
+                                    "borderRadius": "20vh",
+                                    "item": {
+                                        "type": "Container",
+                                        "width": "100vw",
+                                        "height": "15vh",
+                                        "direction": "row",
+                                        "items": [
+                                            {
+                                                "type": "Text",
+                                                "text": "${title}",
+                                                "color": "#FFFFFF",
+                                                "fontSize": "4vw",
+                                                "textAlignVertical": "center",
+                                                "paddingLeft": "6vw",
+                                                "width": "60vw",
+                                                "height": "15vh"
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "text": "${time}",
+                                                "color": "@myBlue",
+                                                "fontSize": "3.5vw",
+                                                "textAlignVertical": "center",
+                                                "textAlign": "right",
+                                                "height": "15vh"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }]
+        }
+    },
+    "mainTemplate": {
+        "parameters": [
+            "datasource"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "width": "100vw",
+                "height": "100vh",
+                "direction": "column",
+                "items": [
+                    {
+                      "when": "${@viewportProfile == @hubRoundSmall}",
+                      "type": "Text",
+                      "text": " ",
+                      "height": "10vh"
+                    },
+                    {
+                      "type": "Image",
+                      "width": "100vw",
+                      "height": "100vh",
+                      "source": "https://s3.amazonaws.com/apl-community-code/twitchschedbackground.jpg",
+                      "scale": "best-fill",
+                      "position": "absolute"
+                    },
+                    {
+                      "type": "Frame",
+                      "width": "100vw",
+                      "height": "100vh",
+                      "backgroundColor": "@myBlack",
+                      "opacity": 0.5,
+                      "scale": "best-fill",
+                      "position": "absolute"
+                    },
+                    {
+                        "type": "Text",
+                        "text": "Alexa Twitch Schedule",
+                        "fontSize": "7vw",
+                        "fontWeight": "200",
+                        "width": "100vw",
+                        "height": "25vh",
+                        "textAlignVertical": "center",
+                        "textAlign": "center"
+                    },
+                    {
+                        "when": "${@viewportProfile != @hubRoundSmall}",
+                        "type": "Text",
+                        "text": "Here is the schedule for today: ${datasource.alexaTwitchData.properties.dayOfTheWeek}",
+                        "fontSize": "3.5vw",
+                        "fontWeight": "100",
+                        "height": "10vh",
+                        "width": "100vw",
+                        "textAlign": "center",
+                        "position": "absolute",
+                        "top": "19vh"
+                    },
+                    {
+                        "type": "Sequence",
+                        "data": "${datasource.alexaTwitchData.properties.schedule}",
+                        "scrollDirection": "vertical",
+                        "paddingTop": "5vh",
+                        "width": "100vw",
+                        "height": "65vh",
+                        "item": {
+                            "type": "ScheduleListItem",
+                            "title": "${data.title}",
+                            "time": "${data.time}"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
