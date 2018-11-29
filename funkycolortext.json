@@ -1,0 +1,91 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [],
+    "resources": [],
+    "styles": {},
+    "layouts": {
+        "FunkyColorText": {
+            "parameters": [
+                "text"
+            ],
+            "items": [
+                {
+                    "type": "Container",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "justifyContent": "center",
+                    "textAlign": "center",
+                    "items": [
+                        {
+                            "type": "Text",
+                            "text": "<i>${text}</i>",
+                            "fontSize": "12vw",
+                            "fontWeight": "700",
+                            "color": "cyan",
+                            "opacity": 0.75,
+                            "width": "100vw",
+                            "textAlign": "center",
+                            "position": "absolute",
+                            "top": "30vh"
+                        },
+                        {
+                            "type": "Text",
+                            "text": "<i>${text}</i>",
+                            "fontSize": "12vw",
+                            "fontWeight": "700",
+                            "color": "magenta",
+                            "opacity": 0.75,
+                            "width": "100vw",
+                            "textAlign": "center",
+                            "position": "absolute",
+                            "top": "45vh"
+                        },
+                        {
+                            "type": "Text",
+                            "text": "<i>${text}</i>",
+                            "fontSize": "12vw",
+                            "fontWeight": "700",
+                            "color": "yellow",
+                            "opacity": 0.75,
+                            "width": "100vw",
+                            "textAlign": "center",
+                            "position": "absolute",
+                            "top": "40vh"
+                        },
+                        {
+                            "type": "Text",
+                            "text": "<i>${text}</i>",
+                            "fontSize": "12vw",
+                            "fontWeight": "700",
+                            "color": "#000000",
+                            "width": "100vw",
+                            "textAlign": "center"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "items": [{
+            "type": "Container",
+            "width": "100vw",
+            "height": "100vh",
+            "items": [
+                {
+                    "type": "Frame",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "backgroundColor": "#FFFFFF",
+                    "position": "absolute"
+                },
+                {
+                    "type": "FunkyColorText",
+                    "text": "hello world"
+                }
+            ]
+        }]
+    }
+}
