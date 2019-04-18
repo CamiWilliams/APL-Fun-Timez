@@ -3,32 +3,7 @@
     "version": "1.0",
     "theme": "dark",
     "import": [],
-    "resources": [
-        {
-            "description": "Colors",
-            "colors": {
-                "backgroundColor": "#DDEEEA",
-                "tappableColor": "#FFFFFF",
-                "blankColor": "#CDDDED",
-                "onePrimaryColor": "#31C4EB",
-                "twoPrimaryColor": "#FEDC52",
-                "threePrimaryColor": "#F84999",
-                "fourPrimaryColor": "#455675",
-                "oneSecondaryColor": "#85DCEE",
-                "twoSecondaryColor": "#FFFD76",
-                "threeSecondaryColor": "#FC69B9",
-                "fourSecondaryColor": "#CDDBEC",
-                "fontColor": "#333640"
-            }
-        },
-        {
-            "description": "Dimensions",
-            "dimensions": {
-                "headerBoxWidth": "15vw",
-                "headerBoxHeight": "12vh"
-            }
-        }
-    ],
+    "resources": [],
     "styles": {},
     "layouts": {
         "Timer": {
