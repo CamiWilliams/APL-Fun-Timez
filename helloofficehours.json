@@ -1,0 +1,75 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [],
+    "resources": [],
+    "styles": {},
+    "layouts": {},
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "width": "100vw",
+                "height": "100vh",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "items": [
+                    {
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "backgroundColor": "black",
+                        "position": "absolute"
+                    },
+                    {
+                        "type": "Frame",
+                        "width": "70vw",
+                        "height": "70vh",
+                        "backgroundColor": "white",
+                        "position": "absolute",
+                        "item": {
+                            "type": "Container",
+                            "width": "70vw",
+                            "height": "70vh",
+                            "items": [
+                                {
+                                    "type": "Text",
+                                    "text": "Hello<br>Office<br>Hours!",
+                                    "color": "black",
+                                    "fontWeight": "100",
+                                    "fontSize": "10vw",
+                                    "paddingLeft": "3vw",
+                                    "width": "70vw",
+                                    "height": "70vh"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Frame",
+                        "width": "30vw",
+                        "height": "20vh",
+                        "backgroundColor": "orange",
+                        "position": "absolute",
+                        "top": "30vh",
+                        "left": "65vw"
+                    },
+                    {
+                        "type": "Image",
+                        "width": "30vw",
+                        "height": "20vh",
+                        "source": "https://s3.amazonaws.com/apl-community-code/andre-sanano-36243-unsplash.jpg",
+                        "scale": "best-fill",
+                        "position": "absolute",
+                        "top": "55vh",
+                        "left": "65vw"
+                    }
+                ]
+            }
+        ]
+    }
+}
