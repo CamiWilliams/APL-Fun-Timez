@@ -1,0 +1,259 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [
+        {
+          "name": "alexa-layouts",
+          "version": "1.0.0"
+        },
+        {
+          "name": "minesweeper-components",
+          "version": "1.0.0",
+          "source": "https://s3.amazonaws.com/apl-community-code/minesweeper/minesweeper-components.json"
+        }
+    ],
+    "resources": [],
+    "styles": {},
+    "layouts": {},
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "width": "100vw",
+                "height": "100vh",
+                "items": [
+                    {
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "backgroundColor": "@backgroundColor",
+                        "position": "absolute"
+                    },
+                    {
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "14vh",
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "direction": "row",
+                        "items": [
+                            {
+                                "type": "Frame",
+                                "width": "@headerBoxWidth",
+                                "height": "@headerBoxHeight",
+                                "backgroundColor": "@tappableColor",
+                                "borderRadius": "2vh",
+                                "item": {
+                                    "type": "Container",
+                                    "width": "@headerBoxWidth",
+                                    "height": "@headerBoxHeight",
+                                    "items": [
+                                        {
+                                            "type": "Text",
+                                            "text": "SCORE",
+                                            "color": "@onePrimaryColor",
+                                            "width": "@headerBoxWidth",
+                                            "textAlign": "center",
+                                            "fontSize": "3vh",
+                                            "fontWeight": "900",
+                                            "position": "absolute"
+                                        },
+                                        {
+                                                "type": "Text",
+                                                "text": "1230",
+                                                "color": "@fontColor",
+                                                "width": "@headerBoxWidth",
+                                                "height": "@headerBoxHeight",
+                                                "textAlign": "center",
+                                                "textAlignVertical": "center",
+                                                "fontSize": "6vh",
+                                                "fontWeight": "900"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Text",
+                                "text": "Minesweeper",
+                                "width": "40vw",
+                                "textAlign": "center",
+                                "fontSize": "6vh",
+                                "fontWeight": "900",
+                                "color": "@fontColor"
+                            },
+                            {
+                                "type": "Frame",
+                                "width": "@headerBoxWidth",
+                                "height": "@headerBoxHeight",
+                                "backgroundColor": "@tappableColor",
+                                "borderRadius": "2vh",
+                                "item": {
+                                    "type": "Container",
+                                    "width": "@headerBoxWidth",
+                                    "height": "@headerBoxHeight",
+                                    "items": [
+                                        {
+                                            "type": "Text",
+                                            "text": "TIME",
+                                            "color": "@twoPrimaryColor",
+                                            "width": "@headerBoxWidth",
+                                            "textAlign": "center",
+                                            "fontSize": "3vh",
+                                            "fontWeight": "900",
+                                            "position": "absolute"
+                                        },
+                                        {
+                                                "type": "Timer",
+                                                "fontColor": "@fontColor",
+                                                "boxWidth": "@headerBoxWidth",
+                                                "boxHeight": "@headerBoxHeight",
+                                                "size": "6vh",
+                                                "weight": "900"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Container",
+                        "width": "100vw",
+                        "direction": "row",
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "items": [
+                            {
+                                "type": "Coordinate",
+                                "title": "A",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "B",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "C",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "D",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "E",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "F",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "G",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "H",
+                                "width": "@coordinateSpacing"
+                            },
+                            {
+                                "type": "Coordinate",
+                                "title": "I",
+                                "width": "@coordinateSpacing"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Container",
+                        "width": "100vw",
+                        "direction": "row",
+                        "justifyContent": "center",
+                        "items": [
+                            {
+                                "type": "Container",
+                                "position": "absolute",
+                                "left": "24vw",
+                                "data": "${payload.minesweeperData.properties.board}",
+                                "items": [
+                                    {
+                                        "type": "Coordinate",
+                                        "title": "${index + 1}",
+                                        "height": "@coordinateSpacing"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Container",
+                                "data": "${payload.minesweeperData.properties.board}",
+                                "direction": "row",
+                                "items": [
+                                    {
+                                        "type": "Container",
+                                        "width": "@coordinateSpacing",
+                                        "data": "${data}",
+                                        "height": "100vh",
+                                        "items": [
+                                            {
+                                                "type": "Box",
+                                                "icon": "${data}"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TouchWrapper",
+                        "componentId": "flagButtonComponent",
+                        "width": "12vh",
+                        "height": "12vh",
+                        "position": "absolute",
+                        "top": "20vh",
+                        "left": "80vw",
+                        "onPress": {
+                            "type": "Parallel",
+                            "commands":[
+                                {
+                                    "type": "SetState",
+                                    "componentId": "flagButtonComponent",
+                                    "state": "checked",
+                                    "value": "${!event.source.value}"
+                                }
+                            ]
+                        },
+                        "item": {
+                            "type": "Frame",
+                            "width": "12vh",
+                            "height": "12vh",
+                            "borderRadius": "2vh",
+                            "style": "flagButtonStyle",
+                            "inheritParentState": true,
+                            "item": {
+                                "type": "Text",
+                                "text": "⚑",
+                                "color": "red",
+                                "fontSize": "5vw",
+                                "fontWeight": "900",
+                                "width": "12vh",
+                                "height": "12vh",
+                                "textAlign": "center",
+                                "textAlignVertical": "center"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
